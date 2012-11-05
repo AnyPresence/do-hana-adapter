@@ -1,0 +1,27 @@
+= do-hana-adapter
+
+A DataObject DataMapper connector for SAP HANA that uses ODBC to do its job. It is based on SQLServer DO code, but support for DataObjects is not complete due to the fact that things, such as regular expressions, are not currently supported in SAP HANA.
+
+== Setup
+
+You need to grab the libodbcHDB.so driver that ships with the SAP HANA Client package as it contains the ODBC driver used by this connector. You also need unixODBC installed and the HANA driver set as default in odbcinst.ini on your system. The driver, if you keep the defaults, ends up in /usr/sap/hdbclient/libodbcHDB.so which is pointed to by the sample odbcinst.ini file, located in the spec folder of this project. The odbc.ini file should be copied into /etc/ or to wherever your system variable $ODBCINI is pointed.
+Please note that the absence of a host definition in the odbc.ini file is intentional. That is provided when connect is called via Ruby ODBC.
+
+== Testing
+
+Most of the rspec cases are cherry-picked from the shared examples provided by DataMapper and DataObjects. They are not exhaustive, however. They do cover a decent chunk of what an adapter is.
+
+== Contributing to dm-hana-adapter
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+* Fork the project.
+* Start a feature/bugfix branch.
+* Commit and push until you are happy with your contribution.
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+This code is licensed under an MIT (X11) License. Please see the accompanying LICENSE file.
+
