@@ -3,7 +3,7 @@ require 'rspec'
 require 'simplecov'
 require 'dm-core'
 require 'dm-do-adapter/spec/shared_spec'
-require 'dm-hana-adapter'
+require 'do-hana-adapter'
 
 class ::Garbage
   include ::DataMapper::Resource

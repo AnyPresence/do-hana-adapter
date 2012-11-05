@@ -1,5 +1,5 @@
 require 'data_objects'
-require 'dm_hana_adapter/do_hana_reader'
+require 'do_hana_adapter/do_hana_reader'
 
 module DataObjects
   module Hana

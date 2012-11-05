@@ -1,6 +1,6 @@
 = do-hana-adapter
 
-A DataObject DataMapper connector for SAP HANA that uses ODBC to do its job. It is based on SQLServer DO code, but support for DataObjects is not complete due to the fact that things, such as regular expressions, are not currently supported in SAP HANA.
+A DataObjects DataMapper connector for SAP HANA that uses ODBC to do its job. It is based on SQLServer DO code, but support for DataObjects is not complete due to the fact that things, such as regular expressions, are not currently supported in SAP HANA.
 
 == Setup
 
@@ -10,6 +10,7 @@ Please note that the absence of a host definition in the odbc.ini file is intent
 == Testing
 
 Most of the rspec cases are cherry-picked from the shared examples provided by DataMapper and DataObjects. They are not exhaustive, however. They do cover a decent chunk of what an adapter is.
+Test cases run against an imdbhdb entry that should be setup in your /etc/hosts to point to your HANA instance. Connection is made to default port of 30015. They also use the default system manager login that SAP provides.
 
 == Contributing to dm-hana-adapter
  

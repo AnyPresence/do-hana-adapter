@@ -14,11 +14,11 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "dm-hana-adapter"
-  gem.homepage = "http://github.com/AnyPresence/dm-hana-adapter"
+  gem.name = "do-hana-adapter"
+  gem.homepage = "http://github.com/AnyPresence/do-hana-adapter"
   gem.license = "MIT"
-  gem.summary = %Q{SAP HANA DataMapper Adapter}
-  gem.description = %Q{A DataMapper implementation that uses ODBC to work against SAP's HANA in-memory database offering.}
+  gem.summary = %Q{SAP HANA DataMapper DataObjects Adapter}
+  gem.description = %Q{A DataMapper DataObjects implementation that uses ODBC to work against SAP's HANA in-memory database offering.}
   gem.email = "support@anypresence.com"
   gem.authors = ["NA"]
   # dependencies defined in Gemfile
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "dm-hana-adapter #{version}"
+  rdoc.title = "do-hana-adapter #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
