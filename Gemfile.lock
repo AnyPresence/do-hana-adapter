@@ -1,3 +1,8 @@
+PATH
+  remote: vendor/ruby-odbc-0.99994
+  specs:
+    ruby-odbc (0.99994)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -46,7 +51,6 @@ GEM
     rspec-expectations (2.10.0)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.10.1)
-    ruby-odbc (0.99994)
     shoulda (3.1.1)
       shoulda-context (~> 1.0)
       shoulda-matchers (~> 1.2)
@@ -74,6 +78,6 @@ DEPENDENCIES
   rcov (~> 0.9.11)
   rdoc (~> 3.12)
   rspec (~> 2.10.0)
-  ruby-odbc (~> 0.99994)
+  ruby-odbc (~> 0.99994)!
   shoulda
   simplecov (~> 0.4)
