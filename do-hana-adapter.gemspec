@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["NA"]
-  s.date = "2012-11-05"
+  s.date = "2012-11-06"
   s.description = "A DataMapper DataObjects implementation that uses ODBC to work against SAP's HANA in-memory database offering."
   s.email = "support@anypresence.com"
   s.extra_rdoc_files = [
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "do-hana-adapter.gemspec",
     "lib/do-hana-adapter.rb",
     "lib/do_hana_adapter/dm_do_hana_adapter.rb",
     "lib/do_hana_adapter/dm_do_hana_migrations.rb",
@@ -33,7 +34,29 @@ Gem::Specification.new do |s|
     "spec/do-hana-adapter_spec.rb",
     "spec/odbc.ini",
     "spec/odbcinst.ini",
-    "spec/spec_helper.rb"
+    "spec/spec_helper.rb",
+    "vendor/ruby-odbc-0.99994/COPYING",
+    "vendor/ruby-odbc-0.99994/ChangeLog",
+    "vendor/ruby-odbc-0.99994/GPL",
+    "vendor/ruby-odbc-0.99994/MANIFEST",
+    "vendor/ruby-odbc-0.99994/README",
+    "vendor/ruby-odbc-0.99994/ext/extconf.rb",
+    "vendor/ruby-odbc-0.99994/ext/init.c",
+    "vendor/ruby-odbc-0.99994/ext/odbc.c",
+    "vendor/ruby-odbc-0.99994/ext/utf8/extconf.rb",
+    "vendor/ruby-odbc-0.99994/ext/utf8/init.c",
+    "vendor/ruby-odbc-0.99994/ext/utf8/odbc.c",
+    "vendor/ruby-odbc-0.99994/lib/cqgen.rb",
+    "vendor/ruby-odbc-0.99994/ruby-odbc.gemspec",
+    "vendor/ruby-odbc-0.99994/test/00connect.rb",
+    "vendor/ruby-odbc-0.99994/test/10create_table.rb",
+    "vendor/ruby-odbc-0.99994/test/20insert.rb",
+    "vendor/ruby-odbc-0.99994/test/30select.rb",
+    "vendor/ruby-odbc-0.99994/test/40update.rb",
+    "vendor/ruby-odbc-0.99994/test/50drop_table.rb",
+    "vendor/ruby-odbc-0.99994/test/70close.rb",
+    "vendor/ruby-odbc-0.99994/test/test.rb",
+    "vendor/ruby-odbc-0.99994/test/utf8/test.rb"
   ]
   s.homepage = "http://github.com/AnyPresence/do-hana-adapter"
   s.licenses = ["MIT"]
@@ -50,7 +73,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<dm-do-adapter>, ["~> 1.2.0"])
       s.add_runtime_dependency(%q<dm-migrations>, ["~> 1.2.0"])
       s.add_runtime_dependency(%q<data_objects>, ["~> 0.10.8"])
-      s.add_runtime_dependency(%q<ruby-odbc>, ["~> 0.99994"])
       s.add_development_dependency(%q<rspec>, ["~> 2.10.0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
@@ -64,7 +86,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<dm-do-adapter>, ["~> 1.2.0"])
       s.add_dependency(%q<dm-migrations>, ["~> 1.2.0"])
       s.add_dependency(%q<data_objects>, ["~> 0.10.8"])
-      s.add_dependency(%q<ruby-odbc>, ["~> 0.99994"])
       s.add_dependency(%q<rspec>, ["~> 2.10.0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
@@ -79,7 +100,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<dm-do-adapter>, ["~> 1.2.0"])
     s.add_dependency(%q<dm-migrations>, ["~> 1.2.0"])
     s.add_dependency(%q<data_objects>, ["~> 0.10.8"])
-    s.add_dependency(%q<ruby-odbc>, ["~> 0.99994"])
     s.add_dependency(%q<rspec>, ["~> 2.10.0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
