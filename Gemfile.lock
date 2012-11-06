@@ -63,7 +63,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.1.4)
+  bundler (~> 1.2.1)
   data_objects (~> 0.10.8)
   dm-core (~> 1.2.0)
   dm-do-adapter (~> 1.2.0)
