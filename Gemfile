@@ -11,7 +11,7 @@ gem "dm-types", DM_VERSION
 gem "dm-do-adapter", DM_VERSION
 gem "dm-migrations", DM_VERSION
 gem "data_objects", DO_VERSION
-gem "ruby-odbc", RUBY_ODBC_VERSION, :path => "vendor/ruby-odbc-0.99994"
+#gem "ruby-odbc", RUBY_ODBC_VERSION, :path => 'vendor/ruby-odbc-0.99994'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

@@ -1,17 +1,12 @@
-PATH
-  remote: vendor/ruby-odbc-0.99994
-  specs:
-    ruby-odbc (0.99994)
-
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.2.6)
+    activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
     bcrypt-ruby (3.0.1)
-    data_objects (0.10.8)
+    data_objects (0.10.10)
       addressable (~> 2.1)
     diff-lcs (1.1.3)
     dm-core (1.2.0)
@@ -21,24 +16,24 @@ GEM
       dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
-    dm-types (1.2.1)
-      bcrypt-ruby (~> 3.0.0)
+    dm-types (1.2.2)
+      bcrypt-ruby (~> 3.0)
       dm-core (~> 1.2.0)
-      fastercsv (~> 1.5.4)
-      json (~> 1.6.1)
-      multi_json (~> 1.0.3)
-      stringex (~> 1.3.0)
-      uuidtools (~> 2.1.2)
+      fastercsv (~> 1.5)
+      json (~> 1.6)
+      multi_json (~> 1.0)
+      stringex (~> 1.4)
+      uuidtools (~> 2.1)
     fastercsv (1.5.5)
     git (1.2.5)
-    i18n (0.6.0)
+    i18n (0.6.1)
     jeweler (1.8.4)
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
       rdoc
-    json (1.6.7)
-    multi_json (1.0.4)
+    json (1.7.5)
+    multi_json (1.3.7)
     rake (0.9.2.2)
     rcov (0.9.11)
     rdoc (3.12)
@@ -51,17 +46,17 @@ GEM
     rspec-expectations (2.10.0)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.10.1)
-    shoulda (3.1.1)
-      shoulda-context (~> 1.0)
-      shoulda-matchers (~> 1.2)
-    shoulda-context (1.0.0)
-    shoulda-matchers (1.2.0)
+    shoulda (3.3.2)
+      shoulda-context (~> 1.0.1)
+      shoulda-matchers (~> 1.4.1)
+    shoulda-context (1.0.1)
+    shoulda-matchers (1.4.1)
       activesupport (>= 3.0.0)
-    simplecov (0.6.4)
+    simplecov (0.7.1)
       multi_json (~> 1.0)
-      simplecov-html (~> 0.5.3)
-    simplecov-html (0.5.3)
-    stringex (1.3.3)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
+    stringex (1.4.0)
     uuidtools (2.1.3)
 
 PLATFORMS
@@ -78,6 +73,5 @@ DEPENDENCIES
   rcov (~> 0.9.11)
   rdoc (~> 3.12)
   rspec (~> 2.10.0)
-  ruby-odbc (~> 0.99994)!
   shoulda
   simplecov (~> 0.4)
