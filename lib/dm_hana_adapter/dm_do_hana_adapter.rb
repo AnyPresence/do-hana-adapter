@@ -1,6 +1,6 @@
 require 'dm-core'
 require 'dm-do-adapter'
-require 'dm_hana_adapter/dm_hana_migrations'
+require 'dm_hana_adapter/dm_do_hana_migrations'
 require 'dm_hana_adapter/do_hana_connection'
 require 'dm_hana_adapter/do_hana_quoting'
 require 'odbc'
