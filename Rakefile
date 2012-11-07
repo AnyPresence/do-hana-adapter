@@ -14,7 +14,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "dm-hana-adapter"
+  gem.name = "dm_hana_adapter"
   gem.homepage = "http://github.com/AnyPresence/do-hana-adapter"
   gem.license = "MIT"
   gem.summary = %Q{SAP HANA DataMapper DataObjects Adapter}
