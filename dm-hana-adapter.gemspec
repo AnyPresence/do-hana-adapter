@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["NA"]
-  s.date = "2012-11-06"
+  s.date = "2012-11-07"
   s.description = "A DataMapper DataObjects implementation that uses ODBC to work against SAP's HANA in-memory database offering."
   s.email = "support@anypresence.com"
   s.extra_rdoc_files = [
@@ -23,9 +23,10 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "dm-hana-adapter.gemspec",
     "lib/dm-hana-adapter.rb",
-    "lib/dm_hana_adapter/dm_hana_adapter.rb",
-    "lib/dm_hana_adapter/dm_hana_migrations.rb",
+    "lib/dm_hana_adapter/dm_do_hana_adapter.rb",
+    "lib/dm_hana_adapter/dm_do_hana_migrations.rb",
     "lib/dm_hana_adapter/do_hana_command.rb",
     "lib/dm_hana_adapter/do_hana_connection.rb",
     "lib/dm_hana_adapter/do_hana_quoting.rb",
