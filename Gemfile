@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-DO_VERSION     = '~> 0.10.8'
+DO_VERSION     = '~> 0.10.7'
 DM_VERSION    = '~> 1.2.0'
 RUBY_ODBC_VERSION = '~> 0.99994'
 
