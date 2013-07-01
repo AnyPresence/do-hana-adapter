@@ -19,7 +19,7 @@ group :development, :test do
   gem "rspec", "~>  2.10.0"
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.3.5"
+  gem "bundler"
   gem "simplecov"
   gem "jeweler", "~> 1.8.4"
   gem "ruby-odbc", RUBY_ODBC_VERSION

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "dm_hana_adapter"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["NA"]
-  s.date = "2012-11-15"
+  s.date = "2013-07-01"
   s.description = "A DataMapper DataObjects implementation that uses ODBC to work against SAP's HANA in-memory database offering."
   s.email = "support@anypresence.com"
   s.extra_rdoc_files = [
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "dm_hana_adapter.gemspec",
     "lib/dm_hana_adapter.rb",
     "lib/dm_hana_adapter/dm_do_hana_adapter.rb",
     "lib/dm_hana_adapter/dm_do_hana_migrations.rb",
@@ -59,11 +60,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/AnyPresence/do-hana-adapter"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "2.0.3"
   s.summary = "SAP HANA DataMapper DataObjects Adapter"
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<dm-core>, ["~> 1.2.0"])
@@ -74,10 +75,10 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rspec>, ["~> 2.10.0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.2.1"])
-      s.add_development_dependency(%q<rcov>, ["~> 0.9.11"])
-      s.add_development_dependency(%q<simplecov>, ["~> 0.4"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_development_dependency(%q<ruby-odbc>, ["~> 0.99995"])
     else
       s.add_dependency(%q<dm-core>, ["~> 1.2.0"])
       s.add_dependency(%q<dm-types>, ["~> 1.2.0"])
@@ -87,10 +88,10 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rspec>, ["~> 2.10.0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, ["~> 1.2.1"])
-      s.add_dependency(%q<rcov>, ["~> 0.9.11"])
-      s.add_dependency(%q<simplecov>, ["~> 0.4"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<simplecov>, [">= 0"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_dependency(%q<ruby-odbc>, ["~> 0.99995"])
     end
   else
     s.add_dependency(%q<dm-core>, ["~> 1.2.0"])
@@ -101,10 +102,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rspec>, ["~> 2.10.0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<bundler>, ["~> 1.2.1"])
-    s.add_dependency(%q<rcov>, ["~> 0.9.11"])
-    s.add_dependency(%q<simplecov>, ["~> 0.4"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<simplecov>, [">= 0"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+    s.add_dependency(%q<ruby-odbc>, ["~> 0.99995"])
   end
 end
 
