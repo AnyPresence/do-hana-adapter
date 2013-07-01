@@ -3,7 +3,7 @@ require 'dm-do-adapter'
 require 'dm_hana_adapter/dm_do_hana_migrations'
 require 'dm_hana_adapter/do_hana_connection'
 require 'dm_hana_adapter/do_hana_quoting'
-require 'odbc'
+require 'odbc_utf8'
 
 module DataMapper
   module Adapters

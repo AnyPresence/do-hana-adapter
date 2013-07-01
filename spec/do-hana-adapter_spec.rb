@@ -14,7 +14,7 @@ describe DataMapper::Adapters::HanaAdapter do
    
    # Uncomment this line to see all the magical debugging goodness
    #DataMapper::Logger.new(STDOUT, :debug)
-   @adapter = DataMapper.setup(:default, :adapter => 'hana', :host => 'imdbhdb', :port => 30015, :username => 'system', :password => 'manager')   
+   @adapter = DataMapper.setup(:default, :adapter => 'hana', :host => 'imdbhdb', :username => ENV['USERNAME'], :password => ENV['PASSWORD'])   
    DataMapper.auto_migrate!
    @test_objects = []
    @today = Date.today
