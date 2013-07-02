@@ -6,9 +6,9 @@ module DataObjects
     class Connection < DataObjects::Connection
       
       self.class_eval do
-	def quote_boolean(value)
-	  value ? 1 : 0
-	end
+	      def quote_boolean(value)
+	        value ? 1 : 0
+	      end
       end
 
   
@@ -26,7 +26,7 @@ module DataObjects
 	      username = uri.query && uri.query["username"]
 	      password = uri.query && uri.query["password"]
 	
-	      DataObjects::Hana.logger.debug("Connecting to #{@host} as #{username}"
+	      DataObjects::Hana.logger.debug("Connecting to #{@host} as #{username}")
 	      begin
           @connection = ODBC::Database.new(@host,username,password)
           @connection.use_utc = true
@@ -43,10 +43,15 @@ module DataObjects
       end
 
       def close
-        if @connection.connected?
-          @connection.drop_all #This is NOT a drop, it simply releases all open Statement objects.
-          @connection.disconnect
-        rescue
+        begin
+          if @connection.connected?
+            @connection.drop_all #This is NOT a drop, it simply releases all open Statement objects.
+            @connection.disconnect
+          else
+            true
+          end
+        rescue => e
+          DataObjects::Hana.logger.error("Error while closing connection: #{e}")
           false
         end
       end
