@@ -15,11 +15,11 @@ module DataObjects
           def execute_non_query(*args)
             DataObjects::Hana.check_params(@text, args)
 	    
-	    row_count = nil
-	    inserted_id = nil
-	    DataObjects::Hana.logger.debug("Query: #{@text} \nArgs: #{args.inspect}")
+	          row_count = nil
+	          inserted_id = nil
+	          DataObjects::Hana.logger.debug("Query: #{@text} \nArgs: #{args.inspect}")
             begin
-	      row_count = @connection.execute(@text,*args)
+	            row_count = @connection.execute(@text,*args)
             rescue ODBC::Error => e
               DataObjects::Hana.raise_db_error(e, @text, args)
             end
@@ -31,10 +31,9 @@ module DataObjects
             DataObjects::Hana.check_params( @text, args)
             massage_limit_and_offset args
 	    
-	    DataObjects::Hana.logger.debug("Query: #{@text} \nArgs: #{args.inspect}")
+	          DataObjects::Hana.logger.debug("Query: #{@text} \nArgs: #{args.inspect}")
             begin
-              statement = @connection.new_statement
-              statement.prepare(@text)
+              statement = @connection.prepare_statement(@text)
               handle = statement.execute(*args)
             rescue ODBC::Error => e
               DataObjects::Hana.raise_db_error(e, @text, args)

@@ -61,6 +61,10 @@ module DataObjects
         @connection.newstmt
       end
       
+      def prepare_statement(sql)
+        @connection.prepare(sql)
+      end
+      
       def execute(sql,*args)
 	      DataObjects::Hana.logger.debug("\nExecute(#{sql.inspect},#{args.inspect}")
 	      ret = @connection.do(sql,*args)
