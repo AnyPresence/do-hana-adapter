@@ -13,30 +13,29 @@ module DataObjects
 
   
       def initialize(uri)
-        
-	@host = uri.query && uri.query["host"]
+        @host = uri.query && uri.query["host"]
 
         raise "No host provided in parameters!" unless @host
 	
-	@port = uri.query && uri.query["port"] 
+	      @port = uri.query && uri.query["port"] 
 	
-	if @port
-	  @host = "#{@host}:#{@port}"
-	end
-	username = uri.query && uri.query["username"]
-	password = uri.query && uri.query["password"]
+	      if @port
+	        @host = "#{@host}:#{@port}"
+	      end
+	      
+	      username = uri.query && uri.query["username"]
+	      password = uri.query && uri.query["password"]
 	
-	#puts "\nConnecting to #{@host} as #{username} and #{password}"
-	begin
+	      DataObjects::Hana.logger.debug("Connecting to #{@host} as #{username}"
+	      begin
           @connection = ODBC::Database.new(@host,username,password)
           @connection.use_utc = true
-	  @connection.use_time = true
+	        @connection.use_time = true
         rescue ODBC::Error => e
           raise e
         end
         
         @encoding = uri.query && uri.query["encoding"] || "utf8"
-
       end
 
       def character_set
@@ -44,21 +43,24 @@ module DataObjects
       end
 
       def close
-        @connection.disconnect if @connection.connected?
-        true
+        if @connection.connected?
+          @connection.drop_all #This is NOT a drop, it simply releases all open Statement objects.
+          @connection.disconnect
         rescue
-        false
+          false
+        end
       end
       
       def new_statement
+        raise "Defective"
         @connection.newstmt
       end
       
       def execute(sql,*args)
-	DataObjects::Hana.logger.debug("\nExecute(#{sql.inspect},#{args.inspect}")
-	ret = @connection.do(sql,*args)
-	DataObjects::Hana.logger.debug("Execute returned #{ret.inspect}")
-	ret
+	      DataObjects::Hana.logger.debug("\nExecute(#{sql.inspect},#{args.inspect}")
+	      ret = @connection.do(sql,*args)
+	      DataObjects::Hana.logger.debug("Execute returned #{ret.inspect}")
+	      ret
       end
       
     end

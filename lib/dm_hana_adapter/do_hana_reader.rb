@@ -9,7 +9,7 @@ module DataObjects
           return unless @handle
 
           @fields = handle.columns
-	  DataObjects::Hana.logger.debug("#{command.inspect} and handle is #{handle.inspect}")
+	        DataObjects::Hana.logger.debug("#{command.inspect} and handle is #{handle.inspect}")
           @rows = []
           types = @command.types
           if types && types.size != @fields.size
@@ -19,54 +19,54 @@ module DataObjects
           DataObjects::Hana.logger.debug("About to fetch rows")
           # Do NOT use @handle.each as it causes a segfault
           while row = @handle.fetch
-	    DataObjects::Hana.logger.debug("Row #{row.inspect}")
+	          DataObjects::Hana.logger.debug("Row #{row.inspect}")
             field = -1
             @rows << row.map do |value|
               field += 1
 	      
               next value unless types
-	      t = types[field]
+	            t = types[field]
 	      
-	      DataObjects::Hana.logger.debug("Type #{t.inspect} value #{value.inspect}")
+	            DataObjects::Hana.logger.debug("Type #{t.inspect} value #{value.inspect}")
 	      
-	      unless value.nil?
-		begin
-		if t == Integer
-		  value.to_i
-		elsif t == Float
-		  value.to_f
-		elsif t == String
-		  value.to_s
-		elsif t == Date
-		  ODBC.to_date(value.to_s)
-		elsif t == Time
-		  Time.new(value.to_s)
-		  #ODBC.to_time(value) # For some reason, ODBC.to_time always barfed
-		elsif t == DateTime
-		  ODBC.to_date(value.to_s)
-		elsif t == TrueClass
-		  if value == 0
-		    false
-		  else
-		    true
-		  end
-		else
-		  t.new(value)
-		end
-		rescue e
-		  puts "OOPS! #{e.stacktrace}"
-		end
-	      end
+	            unless value.nil?
+  	            begin
+      		        if t == Integer
+      		          value.to_i
+      		        elsif t == Float
+      		          value.to_f
+      		        elsif t == String
+      		          value.to_s
+      		        elsif t == Date
+      		          ODBC.to_date(value.to_s)
+      		        elsif t == Time
+      		          Time.new(value.to_s)
+      		          #ODBC.to_time(value) # For some reason, ODBC.to_time always barfed
+      		        elsif t == DateTime
+      		          ODBC.to_date(value.to_s)
+      		        elsif t == TrueClass
+      		          if value == 0
+      		            false
+      		          else
+      		            true
+      		          end
+      		        else
+      		          t.new(value)
+      		        end
+      		      rescue e
+		              DataObjects::Hana.logger.error "OOPS! #{e.stacktrace}"
+		            end
+	            end
             end
           end
-	  DataObjects::Hana.logger.debug("Closing statement")
+	        DataObjects::Hana.logger.debug("Closing statement")
           close
           @current_row = -1
         end
 
         def close
           if @handle
-	    DataObjects::Hana.logger.debug("About to call drop on handle #{@handle}")
+	          DataObjects::Hana.logger.debug("About to call drop on handle #{@handle}")
             @handle.drop if  @handle.respond_to?(:drop)
             @handle = nil
             true

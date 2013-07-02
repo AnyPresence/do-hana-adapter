@@ -20,7 +20,7 @@ module DataMapper
 	
         @host = uri_or_options[:host]
         raise "No host provided!" if @host.nil?
-	@port = uri_or_options[:port]
+	      @port = uri_or_options[:port]
         @username = uri_or_options[:username]
         @password = uri_or_options[:password]
         @schema = uri_or_options[:schema]
@@ -54,9 +54,9 @@ module DataMapper
 
             bind_value = attributes[property]
 	    
-	    if property.default?
-	      raise "PROPERTY #{property.inspect} is default and its bind value is #{bind_value.inspect}"
-	    end
+	          if property.default?
+	            raise "PROPERTY #{property.inspect} is default and its bind value is #{bind_value.inspect}"
+	          end
 	    
             # skip inserting NULL for columns that are serial or without a default
             next if bind_value.nil? && (property.serial? || !property.default?)
@@ -70,26 +70,26 @@ module DataMapper
             bind_values << quote_value(bind_value)
           end
 	  
-	  serial_id = nil
+	        serial_id = nil
 	  
-	  if serial
+	        if serial
 	    
-	    serial_id = select(next_sequence_value_statement(model)).first
-	    DataObjects::Hana.logger.debug("Serial id is #{serial_id.inspect}")
+      	    serial_id = select(next_sequence_value_statement(model)).first
+      	    DataObjects::Hana.logger.debug("Serial id is #{serial_id.inspect}")
 	    
-	    properties << serial
-	    bind_values << serial_id
-	  end
+      	    properties << serial
+      	    bind_values << serial_id
+      	  end
 	  
           statement = insert_statement(model, properties, serial)
-	  DataObjects::Hana.logger.debug("Firing off insert statement of #{statement.inspect}")
+	        DataObjects::Hana.logger.debug("Firing off insert statement of #{statement.inspect}")
 	  
           result = with_connection do |connection|
             connection.create_command(statement).execute_non_query(*bind_values)
           end
 
           if result.affected_rows == 1 && serial
-	    DataObjects::Hana.logger.debug("Setting serial on #{serial.inspect} to #{serial_id.inspect}")
+	          DataObjects::Hana.logger.debug("Setting serial on #{serial.inspect} to #{serial_id.inspect}")
             serial.set!(resource, serial_id)
           end
         end
@@ -98,8 +98,8 @@ module DataMapper
       
       # @api private
       def next_sequence_value_statement(model)
-	# Do not change this to what it probably should be, which is the table backing model, otherwise no value is returned if table has no records. Fun!
-	"SELECT #{quote_name(sequence_name(model))}.nextval FROM DUMMY" 
+	      # Do not change this to what it probably should be, which is the table backing model, otherwise no value is returned if table has no records. Fun!
+	      "SELECT #{quote_name(sequence_name(model))}.nextval FROM DUMMY" 
       end
 	
       # Constructs comparison clause
@@ -194,8 +194,8 @@ module DataMapper
   
 
       module SQL
-	# HANA's maximum allowed identifier length
-	IDENTIFIER_MAX_LENGTH = 127 
+	      # HANA's maximum allowed identifier length
+	      IDENTIFIER_MAX_LENGTH = 127 
  
         # @api private
         def supports_default_values? #:nodoc:
