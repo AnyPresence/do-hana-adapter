@@ -31,6 +31,7 @@ module DataObjects
           @connection = ODBC::Database.new(@host,username,password)
           @connection.use_utc = true
 	        @connection.use_time = true
+	        @connection.ignorecase = true
         rescue ODBC::Error => e
           raise e
         end

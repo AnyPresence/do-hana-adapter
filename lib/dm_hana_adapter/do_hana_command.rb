@@ -35,6 +35,7 @@ module DataObjects
             begin
               statement = @connection.prepare_statement(@text)
               handle = statement.execute(*args)
+              DataObjects::Hana.logger.debug("handle is #{handle.inspect}")
             rescue ODBC::Error => e
               DataObjects::Hana.raise_db_error(e, @text, args)
             rescue
