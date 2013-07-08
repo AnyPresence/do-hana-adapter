@@ -18,7 +18,6 @@ module DataObjects
           end
           DataObjects::Hana.logger.debug("About to fetch rows")
           @handle.each do |row|
-	          DataObjects::Hana.logger.debug("Row #{row}")
             field = -1
             @rows << row.map do |value|
               field += 1
