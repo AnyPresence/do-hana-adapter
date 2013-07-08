@@ -8,8 +8,8 @@ module DataObjects
           @command, @handle = command, handle
           return unless @handle
 
-          @fields = handle.columns
-	        DataObjects::Hana.logger.debug("#{command.inspect} and handle is #{handle.inspect}")
+          @fields = @handle.columns
+	        DataObjects::Hana.logger.debug("#{@command.inspect} and handle is #{@handle.inspect}")
           @rows = []
           types = @command.types
           if types && types.size != @fields.size
@@ -17,8 +17,7 @@ module DataObjects
             raise ArgumentError, "Field-count mismatch. Expected #{types.size} fields, but the query yielded #{@fields.size}"
           end
           DataObjects::Hana.logger.debug("About to fetch rows")
-          # Do NOT use @handle.each as it causes a segfault
-          while row = @handle.fetch
+          @handle.each do |row|
 	          DataObjects::Hana.logger.debug("Row #{row.inspect}")
             field = -1
             @rows << row.map do |value|
