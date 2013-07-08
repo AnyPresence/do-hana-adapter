@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "dm_hana_adapter"
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["NA"]
-  s.date = "2013-07-02"
+  s.date = "2013-07-08"
   s.description = "A DataMapper DataObjects implementation that uses ODBC to work against SAP's HANA in-memory database offering."
   s.email = "support@anypresence.com"
   s.extra_rdoc_files = [
