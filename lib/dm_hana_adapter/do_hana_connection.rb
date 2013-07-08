@@ -31,7 +31,6 @@ module DataObjects
           @connection = ODBC::Database.new(@host,username,password)
           @connection.use_utc = true
 	        @connection.use_time = true
-	        @connection.ignorecase = true
         rescue ODBC::Error => e
           raise e
         end
@@ -57,17 +56,13 @@ module DataObjects
         end
       end
       
-      def new_statement
-        raise "Defective"
-        @connection.newstmt
-      end
-      
       def prepare_statement(sql)
+        DataObjects::Hana.logger.debug("prepare_statement(SQL)\nSQL:\n#{sql.inspect}")
         @connection.prepare(sql)
       end
       
       def execute(sql,*args)
-	      DataObjects::Hana.logger.debug("\nExecute(#{sql.inspect},#{args.inspect}")
+	      DataObjects::Hana.logger.debug("execute(SQL,ARGS)\nSQL:\n#{sql.inspect}\nARGS:\n#{args.inspect}")
 	      ret = @connection.do(sql,*args)
 	      DataObjects::Hana.logger.debug("Execute returned #{ret.inspect}")
 	      ret
