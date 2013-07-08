@@ -13,7 +13,7 @@ module DataObjects
           @rows = []
           types = @command.types
           if types && types.size != @fields.size
-            close
+            @handle.close
             raise ArgumentError, "Field-count mismatch. Expected #{types.size} fields, but the query yielded #{@fields.size}"
           end
           DataObjects::Hana.logger.debug("About to fetch rows")
@@ -59,14 +59,14 @@ module DataObjects
             end
           end
 	        DataObjects::Hana.logger.debug("Closing statement")
-          close
+          @handle.close
           @current_row = -1
         end
 
         def close
           if @handle
-	          DataObjects::Hana.logger.debug("About to call drop on handle #{@handle}")
-            @handle.drop if  @handle.respond_to?(:drop)
+	          DataObjects::Hana.logger.debug("About to call close on handle #{@handle}")
+            @handle.close
             @handle = nil
             true
           else
