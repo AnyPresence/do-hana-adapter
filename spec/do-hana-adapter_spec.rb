@@ -14,7 +14,7 @@ describe DataMapper::Adapters::HanaAdapter do
    
    # Uncomment this line to see all the magical debugging goodness
    #DataMapper::Logger.new(STDOUT, :debug)
-   @adapter = DataMapper.setup(:default, :adapter => 'hana', :host => 'imdbhdb', :username => ENV['USERNAME'], :password => ENV['PASSWORD'])   
+   @adapter = DataMapper.setup(:default, :adapter => 'hana', :host => 'imdbhdb', :username => ENV['HANA_USERNAME'], :password => ENV['HANA_PASSWORD'])   
    DataMapper.auto_migrate!
    @test_objects = []
    @today = Date.today
@@ -23,7 +23,11 @@ describe DataMapper::Adapters::HanaAdapter do
    @id = 8888
    @test_objects << Garbage.create(:title => "Test Article", :body => "This is my very first HANA article", :word_count => 256, :active => false, 
                                 :publish_date => @today, :lunch_break_time => @now, :creation_timestamp =>@now, :location_latitude => 99.8712)
-      
+   class Heffalump
+    property :somethingnew, String
+   end
+   
+   Heffalump.auto_upgrade!   
   end
   
   let(:adapter) { @adapter }

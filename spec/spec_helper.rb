@@ -37,3 +37,6 @@ class ::Mushroom
   property :active, Boolean
 end
 #ENV['ODBCINI'] = "#{File.dirname(__FILE__)}/odbc.ini" unless ENV['ODBCINI']
+
+#Uncomment this line to see all the magical debugging goodness!
+#DataMapper::Logger.new($stdout, :debug)

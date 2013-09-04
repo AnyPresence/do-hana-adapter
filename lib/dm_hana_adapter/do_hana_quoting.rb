@@ -4,6 +4,10 @@ module DataObjects
 
   module Quoting
 
+    def quote_name(name)
+      return '"' + name + '"'
+    end
+
     # Quote a value of any of the recognised data types
     def quote_value(value)
       return 'NULL' if value.nil?

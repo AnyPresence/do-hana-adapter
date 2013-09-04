@@ -32,7 +32,7 @@ module DataMapper
 
       # @api semipublic
       def field_exists?(storage_name, field_name)
-        result = select("SELECT c.name FROM TABLES t JOIN TABLE_COLUMNS c ON t.TABLE_NAME = c.TABLE_NAME WHERE t.TABLE_NAME = ? AND c.COLUMN_NAME LIKE ?", storage_name, field_name).first
+        result = select("SELECT COLUMN_NAME FROM TABLE_COLUMNS WHERE TABLE_NAME = ? AND COLUMN_NAME LIKE ?", storage_name, field_name).first
         result ? result.to_s == field_name.to_s : false
       end
 
@@ -82,6 +82,16 @@ module DataMapper
 	    statement
 	end
 	
+        # @api private
+        def alter_table_add_column_statement(connection, table_name, schema_hash)
+          "ALTER TABLE #{quote_name(table_name)} #{add_column_statement} ( #{property_schema_statement(connection, schema_hash)} )"
+        end
+
+        # @api private
+        def add_column_statement
+          'ADD '
+        end
+
         # @api private
         def create_table_statement(connection, model, properties)
 	  statement_pieces = []
